@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Chat Cleaner",
+  "version": "1.0",
+  "description": "Quickly delete Facebook Messenger conversations",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.facebook.com/*",
+    "https://messenger.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://www.facebook.com/messages/*",
+      "https://messenger.com/*"
+    ],
+    "js": ["content.js"]
+  }]
+} 

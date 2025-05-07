@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    button:not(:disabled):hover {
+      background: #166fe5;
+    }
+    #status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      background: #f0f2f5;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .counter {
+      font-weight: bold;
+      color: #1877f2;
+    }
+    .error {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <h2>Facebook Chat Cleaner</h2>
+  <button id="startDelete">Start Deleting Chats</button>
+  <button id="stopDelete">Stop</button>
+  <div id="status">
+    Ready to start.<br>
+    Deleted: <span id="counter" class="counter">0</span> chats
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
