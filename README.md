@@ -39,6 +39,11 @@ A Chrome extension to **bulk delete Facebook Messenger conversations** or delete
 - **Speed**: The extension is tuned for maximum speed. If you experience missed deletions, you can increase the waits in `content.js`.
 - **Safety**: Use at your own risk. This extension automates UI actions and may be affected by Facebook UI changes.
 - **Privacy**: No data is sent anywhere. All actions happen locally in your browser.
+- **Page Refreshes**: Sometimes a page refresh may be needed before using the extension. This is because:
+  - Facebook Messenger uses dynamic content loading
+  - The extension needs all UI elements to be properly loaded
+  - If you see "Connection lost" message, refresh the page and try again
+  - Wait a few seconds after page load before starting deletion
 
 ## Contributing
 Pull requests and issues are welcome!
