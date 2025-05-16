@@ -3,6 +3,7 @@ const startButton = document.getElementById('startDelete');
 const stopButton = document.getElementById('stopDelete');
 const counter = document.getElementById('counter');
 const status = document.getElementById('status');
+const startChatInput = document.getElementById('startChat');
 let port = null;
 
 // Helper function to update status
@@ -31,6 +32,13 @@ startButton.addEventListener('click', async () => {
             return;
         }
 
+        // Get starting chat number
+        const startChatNumber = startChatInput.value ? parseInt(startChatInput.value) : 1;
+        if (startChatNumber < 1) {
+            updateStatus('Please enter a valid chat number (1 or higher)', true);
+            return;
+        }
+
         // Disable start button and enable stop button
         startButton.disabled = true;
         stopButton.disabled = false;
@@ -39,9 +47,12 @@ startButton.addEventListener('click', async () => {
         port = chrome.tabs.connect(tab.id, { name: 'fb-cleaner' });
         console.log('Port created');
         
-        // Send start message
-        port.postMessage({ action: 'start' });
-        console.log('Start message sent');
+        // Send start message with starting chat number
+        port.postMessage({ 
+            action: 'start',
+            startChatNumber: startChatNumber
+        });
+        console.log('Start message sent with start chat number:', startChatNumber);
         
         // Listen for updates
         port.onMessage.addListener((msg) => {
